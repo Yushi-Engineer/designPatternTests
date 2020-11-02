@@ -1,0 +1,17 @@
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\obj\Debug\DesignPatternTest.csprojAssemblyReference.cache
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\obj\Debug\DesignPatternTest.csproj.CoreCompileInputs.cache
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\bin\Debug\ja\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\bin\Debug\ja\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\bin\Debug\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\bin\Debug\DesignPatternTest.dll
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\bin\Debug\DesignPatternTest.pdb
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\obj\Debug\DesignPatternTest.csproj.CopyComplete
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\obj\Debug\DesignPatternTest.dll
+C:\Users\y-tachibana.LOCALPSC\source\repos\DesignPatternTest\obj\Debug\DesignPatternTest.pdb
