@@ -17,7 +17,7 @@ namespace DesignPatternTest
             IIterator it = bookShelf.Iterator();
             while (it.HasNext())
             {
-                Book book = (Book)it.Next();
+                object book = it.Next<Book>();
                 // Console.WriteLine(book.Name);
             }
         }
@@ -31,7 +31,7 @@ namespace DesignPatternTest
         public interface IIterator
         {
             bool HasNext();
-            object Next();
+            object Next<T>();
         }
 
         // 本を表すクラス
@@ -96,7 +96,7 @@ namespace DesignPatternTest
                 }
             }
 
-            public object Next()
+            public object Next<T>()
             {
                 Book book = BookShelf.GetBookAt(Index);
                 this.Index++;
