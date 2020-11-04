@@ -1,8 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DesignPatternTest
 {
+    #region ClassAdapter
     [TestClass]
     public class AdapterTest
     {
@@ -17,6 +17,17 @@ namespace DesignPatternTest
             string weakGreeting = printGreeting.PrintWeak();
             string strongGreeting = printGreeting.PrintStrong();
         }
+        #endregion ClassAdapter
+
+        #region ObjectAdapter
+        [TestMethod]
+        public void ObjectAdapterTest()
+        {
+            Print<string> printGreeting = new PrintGreetingAtObjectAdapter("山田太郎");
+            string weakGreeting = printGreeting.PrintWeak();
+            string strongGreeting = printGreeting.PrintStrong();
+        }
+        #endregion ObjectAdapter
     }
 
     public class Banner
@@ -91,6 +102,26 @@ namespace DesignPatternTest
         public string PrintStrong()
         {
             return this.SayHelloStrongly();
+        }
+    }
+
+    public class PrintGreetingAtObjectAdapter : Print<string>
+    {
+        public Greeting greeting;
+
+        public PrintGreetingAtObjectAdapter(string name)
+        {
+            this.greeting = new Greeting(name);
+        }
+
+        public string PrintWeak()
+        {
+            return this.greeting.SayHelloWeakly();
+        }
+
+        public string PrintStrong()
+        {
+            return this.greeting.SayHelloStrongly();
         }
     }
 }
