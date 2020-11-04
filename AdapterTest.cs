@@ -2,10 +2,10 @@
 
 namespace DesignPatternTest
 {
-    #region ClassAdapter
     [TestClass]
     public class AdapterTest
     {
+        #region ClassAdapter
         [TestMethod]
         public void ClassAdapterTest()
         {
@@ -28,100 +28,106 @@ namespace DesignPatternTest
             string strongGreeting = printGreeting.PrintStrong();
         }
         #endregion ObjectAdapter
-    }
 
-    public class Banner
-    {
-        private string Str;
+        public class Banner
+        {
+            private string Str;
 
-        public Banner(string str)
-        {
-            this.Str = str;
-        }
-        public string ShowWithPattern()
-        {
-            return $"({Str})";
-        }
-        public string ShowWithAster()
-        {
-            return $"*{Str}*";
-        }
-    }
-
-    public class Greeting
-    {
-        private string Name;
-
-        public Greeting(string name)
-        {
-            this.Name = name;
+            public Banner(string str)
+            {
+                this.Str = str;
+            }
+            public string ShowWithPattern()
+            {
+                return $"({Str})";
+            }
+            public string ShowWithAster()
+            {
+                return $"*{Str}*";
+            }
         }
 
-        public string SayHelloStrongly()
+        public class Greeting
         {
-            return $"{Name}さーーーん！！こーーーんにーーーちはーーーーー！！！！";
+            private string Name;
+
+            public Greeting(string name)
+            {
+                this.Name = name;
+            }
+
+            public string SayHelloStrongly()
+            {
+                return $"{Name}さーーーん！！こーーーんにーーーちはーーーーー！！！！";
+            }
+
+            public string SayHelloWeakly()
+            {
+                return $"{ Name}さん...。こ、こんにちは...。";
+            }
         }
 
-        public string SayHelloWeakly()
+        public interface Print<T>
         {
-            return $"{ Name}さん...。こ、こんにちは...。";
-        }
-    }
+            T PrintWeak();
 
-    public interface Print<T>
-    {
-        T PrintWeak();
-
-        T PrintStrong();
-    }
-
-    public class PrintBanner : Banner, Print<string>
-    {
-        public PrintBanner(string str) : base(str) { }
-
-        public string PrintWeak()
-        {
-            return this.ShowWithPattern();
+            T PrintStrong();
         }
 
-        public string PrintStrong()
+        public class PrintBanner : Banner, Print<string>
         {
-            return this.ShowWithAster();
-        }
-    }
+            public PrintBanner(string str) : base(str) { }
 
-    public class PrintGreeting : Greeting, Print<string>
-    {
-        public PrintGreeting(string str) : base(str) { }
+            public string PrintWeak()
+            {
+                return this.ShowWithPattern();
+            }
 
-        public string PrintWeak()
-        {
-            return this.SayHelloWeakly();
-        }
-
-        public string PrintStrong()
-        {
-            return this.SayHelloStrongly();
-        }
-    }
-
-    public class PrintGreetingAtObjectAdapter : Print<string>
-    {
-        public Greeting greeting;
-
-        public PrintGreetingAtObjectAdapter(string name)
-        {
-            this.greeting = new Greeting(name);
+            public string PrintStrong()
+            {
+                return this.ShowWithAster();
+            }
         }
 
-        public string PrintWeak()
+        /// <summary>
+        /// アダプタークラス
+        /// </summary>
+        public class PrintGreeting : Greeting, Print<string>
         {
-            return this.greeting.SayHelloWeakly();
+            public PrintGreeting(string str) : base(str) { }
+
+            public string PrintWeak()
+            {
+                return this.SayHelloWeakly();
+            }
+
+            public string PrintStrong()
+            {
+                return this.SayHelloStrongly();
+            }
         }
 
-        public string PrintStrong()
+        /// <summary>
+        /// アダプタークラス
+        /// </summary>
+        public class PrintGreetingAtObjectAdapter : Print<string>
         {
-            return this.greeting.SayHelloStrongly();
+            public Greeting Greeting;
+
+            public PrintGreetingAtObjectAdapter(string name)
+            {
+                this.Greeting = new Greeting(name);
+            }
+
+            public string PrintWeak()
+            {
+                return this.Greeting.SayHelloWeakly();
+            }
+
+            public string PrintStrong()
+            {
+                return this.Greeting.SayHelloStrongly();
+            }
         }
     }
 }
