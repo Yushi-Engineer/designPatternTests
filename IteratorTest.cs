@@ -128,6 +128,21 @@ namespace DesignPatternTest
             }
         }
 
+        [TestMethod]
+        public void GenericsIteratorTest2()
+        {
+            CdRack cdRack = new CdRack();
+            cdRack.AppendCd(new Cd("Thriller"));
+            cdRack.AppendCd(new Cd("Back in Black"));
+            cdRack.AppendCd(new Cd("Bat out of Hell"));
+            cdRack.AppendCd(new Cd("The Dark Side of the Moon"));
+            IIterator<Cd> it = cdRack.Iterator();
+            while (it.HasNext())
+            {
+                Cd cd = it.Next();
+            }
+        }
+
         #region 共通部品 T型の型パラメータを定義
         public interface IAggregate<T> // 2.共通部品にT型の型パラメータを定義する
         {
@@ -148,6 +163,7 @@ namespace DesignPatternTest
         public class Book
         {
             public string Name { get; set; }
+
             public Book(string name)
             {
                 this.Name = name;
@@ -214,6 +230,82 @@ namespace DesignPatternTest
             }
         }
         #endregion 本
+
+        #region CD
+        // CDを表すクラス
+        public class Cd
+        {
+            private string Name;
+
+            public Cd(string name)
+            {
+                this.Name = name;
+            }
+        }
+
+        public class CdRack : IAggregate<Cd>
+        {
+            List<Cd> Cds = new List<Cd>();
+
+            int Last { get; set; } = 0;
+
+            public Cd GetCdAt(int index)
+            {
+                return Cds[index];
+            }
+
+            public void AppendCd(Cd cd)
+            {
+                this.Cds.Add(cd);
+                Last++;
+            }
+
+            public int GetLength()
+            {
+                return this.Last;
+            }
+
+            public IIterator<Cd> Iterator()
+            {
+                return new CdRackIterator(this);
+            }
+        }
+
+        public class CdRackIterator : IIterator<Cd>
+        {
+            CdRack CdRack { get; set; }
+
+            int Index { get; set; }
+
+            public CdRackIterator(CdRack cdRack)
+            {
+                this.CdRack = cdRack;
+                this.Index = 0;
+            }
+
+            public bool HasNext()
+            {
+                if(Index < CdRack.GetLength())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            public Cd Next()
+            {
+                Cd cd = CdRack.GetCdAt(Index);
+                this.Index++;
+                return cd;
+            }
+        }
+        #endregion CD
+
         #endregion Iterator
     }
+
+    
 }
