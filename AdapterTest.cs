@@ -12,6 +12,10 @@ namespace DesignPatternTest
             Print<string> p = new PrintBanner("Hello");
             string weak =  p.PrintWeak();
             string strong =  p.PrintStrong();
+
+            Print<string> printGreeting = new PrintGreeting("山田太郎");
+            string weakGreeting = printGreeting.PrintWeak();
+            string strongGreeting = printGreeting.PrintStrong();
         }
     }
 
@@ -30,6 +34,26 @@ namespace DesignPatternTest
         public string ShowWithAster()
         {
             return $"*{Str}*";
+        }
+    }
+
+    public class Greeting
+    {
+        private string Name;
+
+        public Greeting(string name)
+        {
+            this.Name = name;
+        }
+
+        public string SayHelloStrongly()
+        {
+            return $"{Name}さーーーん！！こーーーんにーーーちはーーーーー！！！！";
+        }
+
+        public string SayHelloWeakly()
+        {
+            return $"{ Name}さん...。こ、こんにちは...。";
         }
     }
 
@@ -52,6 +76,21 @@ namespace DesignPatternTest
         public string PrintStrong()
         {
             return this.ShowWithAster();
+        }
+    }
+
+    public class PrintGreeting : Greeting, Print<string>
+    {
+        public PrintGreeting(string str) : base(str) { }
+
+        public string PrintWeak()
+        {
+            return this.SayHelloWeakly();
+        }
+
+        public string PrintStrong()
+        {
+            return this.SayHelloStrongly();
         }
     }
 }
