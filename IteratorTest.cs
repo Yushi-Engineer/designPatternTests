@@ -115,6 +115,7 @@ namespace DesignPatternTest
         [TestMethod]
         public void GenericsIteratorTest()
         {
+            /*
             BookShelf bookShelf = new BookShelf();
             bookShelf.AppendBook(new Book("Around the world in 80 days"));
             bookShelf.AppendBook(new Book("Bible"));
@@ -126,11 +127,13 @@ namespace DesignPatternTest
                 Book book = it.Next(); // 問題点：Book型のキャストをなくすには？
                 //Console.WriteLine(book.Name);
             }
+            */
         }
 
         [TestMethod]
         public void GenericsIteratorTest2()
         {
+            /*
             CdRack cdRack = new CdRack();
             cdRack.AppendCd(new Cd("Thriller"));
             cdRack.AppendCd(new Cd("Back in Black"));
@@ -141,6 +144,7 @@ namespace DesignPatternTest
             {
                 Cd cd = it.Next();
             }
+            */
         }
 
         #region 共通部品 T型の型パラメータを定義

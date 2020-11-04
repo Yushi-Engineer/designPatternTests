@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="IteratorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AdapterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
