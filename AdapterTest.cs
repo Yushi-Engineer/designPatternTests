@@ -9,7 +9,7 @@ namespace DesignPatternTest
         [TestMethod]
         public void ClassAdapterTest()
         {
-            Print p = new PrintBanner("Hello");
+            Print<string> p = new PrintBanner("Hello");
             string weak =  p.PrintWeak();
             string strong =  p.PrintStrong();
         }
@@ -33,14 +33,14 @@ namespace DesignPatternTest
         }
     }
 
-    public interface Print
+    public interface Print<T>
     {
-        string PrintWeak();
+        T PrintWeak();
 
-        string PrintStrong();
+        T PrintStrong();
     }
 
-    public class PrintBanner : Banner, Print
+    public class PrintBanner : Banner, Print<string>
     {
         public PrintBanner(string str) : base(str) { }
 
