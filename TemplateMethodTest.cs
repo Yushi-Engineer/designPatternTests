@@ -95,6 +95,10 @@ namespace DesignPatternTest
                 {
                     BattleCommandLogs.Add($"オッス！おら{PlayerName}！おらワクワクすっぞ！");
                 }
+                else
+                {
+                    BattleCommandLogs.Add("試合開始！");
+                }
             }
 
             public override void Finish()
@@ -106,6 +110,10 @@ namespace DesignPatternTest
                 else if (PlayerName == "悟空")
                 {
                     BattleCommandLogs.Add("試合終了！おらが勝ったみてえだな！");
+                }
+                else
+                {
+                    BattleCommandLogs.Add("試合終了！");
                 }
             }
 
@@ -129,6 +137,10 @@ namespace DesignPatternTest
                 {
                     BattleCommandLogs.Add("かーめーはーめー波ーーー！！");
                 }
+                else
+                {
+                    BattleCommandLogs.Add("必殺技をくらえ！！");
+                }
             }
 
             public override void FinalAttackCommand()
@@ -140,6 +152,10 @@ namespace DesignPatternTest
                 else if (PlayerName == "悟空")
                 {
                     BattleCommandLogs.Add("みんな！おらに元気を分けてくれ！元気玉！！！");
+                }
+                else
+                {
+                    BattleCommandLogs.Add("これが最終奥義だ！！！");
                 }
             }
 
