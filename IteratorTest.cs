@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace DesignPatternTest
 {
@@ -115,7 +116,6 @@ namespace DesignPatternTest
         [TestMethod]
         public void GenericsIteratorTest()
         {
-            /*
             BookShelf bookShelf = new BookShelf();
             bookShelf.AppendBook(new Book("Around the world in 80 days"));
             bookShelf.AppendBook(new Book("Bible"));
@@ -125,15 +125,13 @@ namespace DesignPatternTest
             while (it.HasNext())
             {
                 Book book = it.Next(); // 問題点：Book型のキャストをなくすには？
-                //Console.WriteLine(book.Name);
+                Debug.WriteLine(book.Name);
             }
-            */
         }
 
         [TestMethod]
         public void GenericsIteratorTest2()
         {
-            /*
             CdRack cdRack = new CdRack();
             cdRack.AppendCd(new Cd("Thriller"));
             cdRack.AppendCd(new Cd("Back in Black"));
@@ -143,8 +141,8 @@ namespace DesignPatternTest
             while (it.HasNext())
             {
                 Cd cd = it.Next();
+                Debug.WriteLine(cd.Title);
             }
-            */
         }
 
         #region 共通部品 T型の型パラメータを定義
@@ -239,11 +237,11 @@ namespace DesignPatternTest
         // CDを表すクラス
         public class Cd
         {
-            private string Name;
+            public string Title;
 
             public Cd(string name)
             {
-                this.Name = name;
+                this.Title = name;
             }
         }
 

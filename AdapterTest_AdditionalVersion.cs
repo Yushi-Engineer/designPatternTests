@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace DesignPatternTest
 {
@@ -10,6 +11,7 @@ namespace DesignPatternTest
         {
             Gratitude gratitude = new Gratitude("お父さん、お母さん");
             string message = gratitude.ExpressMyFeeling();
+            Debug.WriteLine(message);
         }
 
         [TestMethod]
@@ -18,6 +20,7 @@ namespace DesignPatternTest
             Express<string> express = new AdaptExpressToGratitude("お父さん、お母さん、2020年も");
             string newMessageIn2020 = express.ExpressMyGratitudeTo();
             // 下記の要望通り、新メソッド名の"ExpressMyGratitudeTo"で処理が呼べるようになった！▼
+            Debug.WriteLine(newMessageIn2020);
         }
 
         #region 2010年の出来事

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace DesignPatternTest
 {
@@ -12,10 +13,14 @@ namespace DesignPatternTest
             Print<string> p = new PrintBanner("Hello");
             string weak =  p.PrintWeak();
             string strong =  p.PrintStrong();
+            Debug.WriteLine(weak);
+            Debug.WriteLine(strong);
 
             Print<string> printGreeting = new PrintGreeting("山田太郎");
             string weakGreeting = printGreeting.PrintWeak();
             string strongGreeting = printGreeting.PrintStrong();
+            Debug.WriteLine(weakGreeting);
+            Debug.WriteLine(strongGreeting);
         }
         #endregion ClassAdapter
 
