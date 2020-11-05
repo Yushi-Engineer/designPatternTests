@@ -11,9 +11,18 @@ namespace DesignPatternTest
         [TestMethod]
         public void TemplateMethodTest1()
         {
-            BattleCommands command1 = new MyOwnBattleCommands("リュウ");
-            string[] battleCommandLogs = command1.Battle();
-            foreach (var log in battleCommandLogs)
+            BattleCommands ryuCommand = new MyOwnBattleCommands("リュウ");
+            string[] ryuCommandLogs = ryuCommand.Battle();
+            foreach (var log in ryuCommandLogs)
+            {
+                Debug.WriteLine(log);
+            }
+
+            Debug.WriteLine("\r\n-----Character Changed-----\r\n");
+
+            BattleCommands gokuCommand = new MyOwnBattleCommands("悟空");
+            string[] gokuCommandLogs = gokuCommand.Battle();
+            foreach (var log in gokuCommandLogs)
             {
                 Debug.WriteLine(log);
             }
@@ -78,12 +87,26 @@ namespace DesignPatternTest
             public override void Start()
             {
                 BattleCommandLogs = new List<string>();
-                BattleCommandLogs.Add($"俺は{PlayerName}だ！俺と勝負しろ！");
+                if (PlayerName == "リュウ")
+                {
+                    BattleCommandLogs.Add($"俺は{PlayerName}だ！俺と勝負しろ！");
+                }
+                else if(PlayerName == "悟空")
+                {
+                    BattleCommandLogs.Add($"オッス！おら{PlayerName}！おらワクワクすっぞ！");
+                }
             }
 
             public override void Finish()
             {
-                BattleCommandLogs.Add("試合終了！俺の勝ちだ！");
+                if (PlayerName == "リュウ")
+                {
+                    BattleCommandLogs.Add("試合終了！俺の勝ちだ！");
+                }
+                else if (PlayerName == "悟空")
+                {
+                    BattleCommandLogs.Add("試合終了！おらが勝ったみてえだな！");
+                }
             }
 
             public override void AttackCommandA()
@@ -98,12 +121,26 @@ namespace DesignPatternTest
 
             public override void SuperAttackCommand()
             {
-                BattleCommandLogs.Add("波動拳！！");
+                if (PlayerName == "リュウ")
+                {
+                    BattleCommandLogs.Add("波動拳！！");
+                }
+                else if (PlayerName == "悟空")
+                {
+                    BattleCommandLogs.Add("かーめーはーめー波ーーー！！");
+                }
             }
 
             public override void FinalAttackCommand()
             {
-                BattleCommandLogs.Add("昇竜拳！！！");
+                if (PlayerName == "リュウ")
+                {
+                    BattleCommandLogs.Add("昇竜拳！！！");
+                }
+                else if (PlayerName == "悟空")
+                {
+                    BattleCommandLogs.Add("みんな！おらに元気を分けてくれ！元気玉！！！");
+                }
             }
 
             public override string[] DiaplayCommandLogs()
